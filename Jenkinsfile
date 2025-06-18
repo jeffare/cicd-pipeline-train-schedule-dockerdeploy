@@ -20,7 +20,7 @@ pipeline {
                 echo 'Building the Docker image...'
                 // The 'app' variable will hold our built image
                 script {
-                    app = docker.build("<jeffngara>/train-schedule")
+                    app = docker.build("jeffngara/train-schedule")
                 }
             }
         }
@@ -30,10 +30,12 @@ pipeline {
             steps {
                 echo 'Pushing the image to Docker Hub...'
                 // Use the 'docker_hub_login' credential to log in
+                script{
                 docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
                     // Push two versions: one with a unique build number, and one called 'latest'
                     app.push("${env.BUILD_NUMBER}")
                     app.push("latest")
+                }
                 }
             }
         }
