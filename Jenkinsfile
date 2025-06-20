@@ -45,7 +45,7 @@ pipeline {
         stage('Deploy To Local Machine') {
             steps {
                 // This step pauses the pipeline for you to give manual approval
-                input 'Ready to deploy to your local machine?'
+               // input 'Ready to deploy to your local machine?'
 
                 echo 'Deploying container locally...'
                 script {
