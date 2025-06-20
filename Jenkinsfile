@@ -10,7 +10,8 @@ pipeline {
         stage('Build App') {
             steps {
                 echo 'Building the Java application...'
-                sh './gradlew build --no-daemon'
+               // sh './gradlew build --no-daemon'
+                sh "npm install"
             }
         }
 
