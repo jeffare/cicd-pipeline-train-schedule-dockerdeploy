@@ -62,7 +62,7 @@ pipeline {
                     }
 
                     // Run the new container on your local machine
-                    sh "docker run --restart always --name train-schedule -p 9000:8080 -d <DOCKER_HUB_USERNAME>/train-schedule:${env.BUILD_NUMBER}"
+                    sh "docker run --restart always --name train-schedule -p 9000:8080 -d jeffngara/train-schedule:${env.BUILD_NUMBER}"
                 }
             }
         }
