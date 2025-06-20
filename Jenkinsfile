@@ -50,7 +50,7 @@ pipeline {
                 echo 'Deploying container locally...'
                 script {
                     // Pull the specific image version from Docker Hub to ensure we have the right one
-                    sh "docker pull <DOCKER_HUB_USERNAME>/train-schedule:${env.BUILD_NUMBER}"
+                    sh "docker pull jeffngara/train-schedule:${env.BUILD_NUMBER}"
 
                     // Stop and remove any old version of this container if it exists
                     // This 'try/catch' block prevents errors if the container isn't already running
