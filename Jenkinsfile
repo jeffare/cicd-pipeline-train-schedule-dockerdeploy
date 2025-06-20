@@ -1,4 +1,4 @@
-// This is the full recipe for our local deployment pipeline
+// This is the full recipe for our  deployment pipeline
 pipeline {
     // This pipeline can run on any available Jenkins machine
     agent any
@@ -41,13 +41,13 @@ pipeline {
             }
         }
 
-        // Stage 4: Deploy the container to your local machine
-        stage('Deploy To Local Machine') {
+        // Stage 4: Deploy the container
+        stage('Deploy') {
             steps {
                 // This step pauses the pipeline for you to give manual approval
-               // input 'Ready to deploy to your local machine?'
+               // input 'Ready to deploy?'
 
-                echo 'Deploying container locally...'
+                echo 'Deploying container...'
                 script {
                     // Pull the specific image version from Docker Hub to ensure we have the right one
                     sh "docker pull jeffngara/train-schedule:${env.BUILD_NUMBER}"
